@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "houses",
+  "info": {
+    "singularName": "house",
+    "pluralName": "houses",
+    "displayName": "House",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Street": {
+      "type": "string",
+      "required": true
+    },
+    "Rooms": {
+      "type": "integer"
+    },
+    "Bathrooms": {
+      "type": "integer"
+    },
+    "Bedrooms": {
+      "type": "integer"
+    },
+    "Short_Address": {
+      "type": "string"
+    },
+    "Preview_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "Price": {
+      "type": "decimal",
+      "max": 3330000,
+      "min": 0
+    },
+    "Rent": {
+      "type": "decimal",
+      "max": 300000,
+      "min": 0
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "houses"
+    },
+    "Neighborhood": {
+      "type": "string"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::location.location",
+      "inversedBy": "houses"
+    }
+  }
+}
